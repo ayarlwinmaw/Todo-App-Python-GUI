@@ -1,3 +1,4 @@
 Mop
 Sweep
 Wash Cloth
+Shower
