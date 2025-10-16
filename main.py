@@ -7,7 +7,9 @@ fsg.theme('DarkTeal4')
 clock = fsg.Text('', key='clock')
 label = fsg.Text("Type in a todo")
 input_box = fsg.InputText(tooltip="Enter a todo", key="todo")
-add_button = fsg.Button("Add")
+add_button = fsg.Button(size=8, image_source="add.png", key="Add",
+                        mouseover_colors="LightBlue2",
+                        tooltip="Click here to add a task")
 list_box = fsg.Listbox(
     values=functions.get_todos(),
     key="todos",
@@ -42,6 +44,7 @@ while True:
             todos.append(new_todo)
             functions.write_todos(todos)
             window['todos'].update(values=todos)
+            window['todo'].update(value='')
 
         case 'todos':
             window['todo'].update(value=values['todos'][0])
@@ -72,7 +75,7 @@ while True:
         case "Exit":
             break
 
-        case fsg.WINDOW_CLOSED:
+        case fsg.WIN_CLOSED:
             break
 
 window.close()
